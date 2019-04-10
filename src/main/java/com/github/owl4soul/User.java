@@ -14,8 +14,14 @@ public class User {
 
     @Column(name = "username")
     private String userName;
+
+    @Column(name = "firstname")
     private String firstName;
+
+    @Column(name = "lastname")
     private String lastName;
+
+    @Column(name = "phone")
     private int phone;
 
     public User() {
@@ -39,6 +45,7 @@ public class User {
             this.userName = userName;
             return this;
         }
+
         public Builder _firstName(String firstName) {
             this.firstName = firstName;
             return this;
