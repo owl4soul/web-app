@@ -5,10 +5,13 @@ import com.github.owl4soul.utils.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
+//Data access object
 public class UserDao {
 
-    public User findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, id);
+    public User findByUsername(String userName) {
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(User.class, userName);
     }
 
     public void save(User user) {
@@ -33,5 +36,10 @@ public class UserDao {
         session.delete(user);
         tx1.commit();
         session.close();
+    }
+
+    public List<User> findAll() {
+        List<User> users = (List<User>)  HibernateSessionFactoryUtil.getSessionFactory().openSession().createQuery("From User").list();
+        return users;
     }
 }

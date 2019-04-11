@@ -3,6 +3,9 @@ package com.github.owl4soul.services;
 import com.github.owl4soul.User;
 import com.github.owl4soul.dao.UserDao;
 
+import java.util.List;
+
+//Business logic
 public class UserService {
 
     private UserDao usersDao = new UserDao();
@@ -10,8 +13,8 @@ public class UserService {
     public UserService() {
     }
 
-    public User findUser(int id) {
-        return usersDao.findById(id);
+    public User findUser(String userName) {
+        return usersDao.findByUsername(userName);
     }
 
     public void saveUser(User user) {
@@ -24,5 +27,9 @@ public class UserService {
 
     public void updateUser(User user) {
         usersDao.update(user);
+    }
+
+    public List<User> findAllUsers() {
+        return usersDao.findAll();
     }
 }
