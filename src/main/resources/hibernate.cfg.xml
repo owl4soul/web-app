@@ -5,7 +5,7 @@
 <hibernate-configuration>
   <session-factory>
     <property name="connection.driver_class">org.postgresql.Driver</property>
-    <property name="connection.url">jdbc:mysql://localhost:8080/userdatabase</property>
+    <property name="connection.url">jdbc:postgresql://localhost:5432/userdatabase</property>
 
     <!-- NOTE that after automapping with IDEA property username and password will delete -->
     <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->
