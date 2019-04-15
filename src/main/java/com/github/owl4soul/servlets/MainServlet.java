@@ -43,6 +43,9 @@ public class MainServlet extends HttpServlet {
         String lastName = req.getParameter("lastName");
         int phone = Integer.parseInt(req.getParameter("phone"));
         User user = new User.Builder()._userName(userName)._firstName(firstName)._lastName(lastName)._phone(phone).build();
+        UserService userService = new UserService();
+        userService.saveUser(user);
+        userService.updateUser(user);
         resp.sendRedirect("/users");
     }
 

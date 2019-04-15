@@ -5,7 +5,7 @@ import javafx.util.Builder;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "usercreating")
 
 public class User {
     @Id
