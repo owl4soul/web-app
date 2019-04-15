@@ -1,11 +1,9 @@
 package com.github.owl4soul;
 
-import javafx.util.Builder;
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "usercreating")
+@Table(name = "userlist")
 
 public class User {
     @Id
@@ -22,7 +20,7 @@ public class User {
     private String lastName;
 
     @Column(name = "phone")
-    private int phone;
+    private long phone;
 
     public User() {
     }
@@ -39,7 +37,7 @@ public class User {
         private String userName;
         private String firstName;
         private String lastName;
-        private int phone;
+        private long phone;
 
         public Builder _userName(String userName) {
             this.userName = userName;
@@ -56,7 +54,7 @@ public class User {
             return this;
         }
 
-        public Builder _phone(int phone) {
+        public Builder _phone(long phone) {
             this.phone = phone;
             return this;
         }
@@ -96,11 +94,11 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 }

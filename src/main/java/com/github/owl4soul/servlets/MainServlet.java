@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 public class MainServlet extends HttpServlet {
@@ -41,11 +40,12 @@ public class MainServlet extends HttpServlet {
         String userName = req.getParameter("userName");
         String firstName = req.getParameter("firstName");
         String lastName = req.getParameter("lastName");
-        int phone = Integer.parseInt(req.getParameter("phone"));
+        long phone = Long.parseLong(req.getParameter("phone"));
         User user = new User.Builder()._userName(userName)._firstName(firstName)._lastName(lastName)._phone(phone).build();
-        UserService userService = new UserService();
-        userService.saveUser(user);
-        userService.updateUser(user);
+
+        //to put to database
+        service.saveUser(user);
+
         resp.sendRedirect("/users");
     }
 
@@ -56,7 +56,7 @@ public class MainServlet extends HttpServlet {
         user.setUserName(req.getParameter("userName"));
         user.setFirstName(req.getParameter("firstName"));
         user.setLastName(req.getParameter("lastName"));
-        user.setPhone(Integer.parseInt(req.getParameter("phone")));
+        user.setPhone(Long.parseLong(req.getParameter("phone")));
         service.updateUser(user);
         resp.sendRedirect("/users");
     }
